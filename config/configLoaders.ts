@@ -17,5 +17,25 @@ export function configLoaders(
     use: [miniCssExtractPlugin.loader, "css-loader", "sass-loader"],
   };
 
-  return [typescriptLoader, scssLoader];
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: [
+          // Documentation https://babeljs.io/docs/en/babel-preset-env
+          ["@babel/preset-env", { targets: "defaults" }],
+
+          // Documentation https://babeljs.io/docs/en/babel-preset-typescript
+          "@babel/preset-typescript",
+
+          // Documentation https://babeljs.io/docs/en/babel-preset-react
+          "@babel/preset-react",
+        ],
+      },
+    },
+  };
+
+  return [babelLoader, typescriptLoader, scssLoader];
 }
