@@ -1,7 +1,8 @@
-import path from "path";
 import webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 import type { WebpackBuildOptions } from "./types";
+
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import miniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function configPlugins(
   options: WebpackBuildOptions
@@ -9,6 +10,10 @@ export function configPlugins(
   const plugins = [
     new HtmlWebpackPlugin({
       template: options.paths.html,
+    }),
+
+    new miniCssExtractPlugin({
+      filename: "styles.css",
     }),
   ];
 

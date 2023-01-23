@@ -27,7 +27,6 @@ const configuration: WebpackConfiguration = {
     filename: "[name].[contenthash].js",
     path: paths.build,
     clean: true,
-    publicPath: "./",
   },
   module: {
     rules: configLoaders(options),

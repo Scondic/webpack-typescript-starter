@@ -1,6 +1,8 @@
 import webpack from "webpack";
 import type { WebpackBuildOptions } from "./types";
 
+import miniCssExtractPlugin from "mini-css-extract-plugin";
+
 export function configLoaders(
   options: WebpackBuildOptions
 ): webpack.RuleSetRule[] {
@@ -10,5 +12,10 @@ export function configLoaders(
     exclude: /node_modules/,
   };
 
-  return [typescriptLoader];
+  const scssLoader = {
+    test: /\.(s*)css$/,
+    use: [miniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+  };
+
+  return [typescriptLoader, scssLoader];
 }
