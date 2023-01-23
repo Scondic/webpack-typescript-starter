@@ -34,6 +34,7 @@ const configuration: WebpackConfiguration = {
   plugins: configPlugins(options),
   devServer: configDevServer(options),
   resolve: configResolve(options),
+  devtool: "source-map",
 };
 
 export default configuration;

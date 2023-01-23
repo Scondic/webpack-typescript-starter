@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
