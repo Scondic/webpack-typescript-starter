@@ -10,7 +10,9 @@
     "moduleResolution": "node",
     "baseUrl": "./src/",
     "paths": {
-      "@/app/*": ["app/*"]
+      "@/*": ["/*"],
+      "@/app/*": ["app/*"],
+      "@/assets/*": ["assets/*"]
     },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
